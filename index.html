@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Donny Nguyen LLC — developer and agent infrastructure</title>
+<meta name="description" content="DONNY NGUYEN LLC builds developer and AI-agent infrastructure: MCP servers for on-chain market data, pay-per-call HTTP 402 endpoints settling USDC on Base, and public data actors on Apify.">
+<link rel="canonical" href="https://donnyautomation.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://donnyautomation.com/">
+<meta property="og:title" content="Donny Nguyen LLC — developer and agent infrastructure">
+<meta property="og:description" content="MCP servers for on-chain market data, pay-per-call HTTP 402 endpoints settling USDC on Base, and public data actors on Apify.">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --bg:#0b0d12; --panel:#12151d; --line:#232836;
+    --ink:#e8ecf4; --dim:#9aa4b8; --faint:#6b7488;
+    --accent:#7c9cff; --ok:#4ade80;
+    --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);
+       font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent}
+  a:hover{border-bottom-color:var(--accent)}
+
+  header{padding:72px 0 40px;border-bottom:1px solid var(--line)}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;
+           text-transform:uppercase;color:var(--faint)}
+  h1{font-size:clamp(28px,5vw,40px);line-height:1.2;font-weight:600;margin:14px 0 16px;
+     letter-spacing:-.02em}
+  .lede{color:var(--dim);font-size:19px;max-width:62ch}
+
+  section{padding:44px 0;border-bottom:1px solid var(--line)}
+  h2{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+     color:var(--faint);font-weight:600;margin-bottom:24px}
+  h3{font-size:18px;font-weight:600;margin-bottom:6px;letter-spacing:-.01em}
+
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;
+        padding:22px 22px 20px;margin-bottom:16px}
+  .card p{color:var(--dim);font-size:15.5px}
+  .links{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
+  .links a{font-family:var(--mono);font-size:12.5px;color:var(--dim);
+           border:1px solid var(--line);border-radius:6px;padding:5px 10px;background:#0e1118}
+  .links a:hover{color:var(--ink);border-color:var(--accent)}
+
+  .live{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);
+        font-size:11.5px;color:var(--ok);margin-left:10px;vertical-align:2px;font-weight:500}
+  .live::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--ok)}
+
+  dl{display:grid;grid-template-columns:180px 1fr;gap:10px 20px;font-size:15.5px}
+  dt{font-family:var(--mono);font-size:12.5px;color:var(--faint);
+     text-transform:uppercase;letter-spacing:.08em;padding-top:4px}
+  dd{color:var(--dim)}
+
+  .note{color:var(--faint);font-size:14.5px;max-width:64ch}
+  footer{padding:36px 0 64px;color:var(--faint);font-size:13.5px}
+  footer p+p{margin-top:8px}
+
+  @media(max-width:560px){
+    body{font-size:16px}
+    header{padding:52px 0 32px}
+    dl{grid-template-columns:1fr;gap:2px 0}
+    dt{padding-top:12px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">Donny Nguyen LLC &middot; Plano, Texas</div>
+  <h1>Developer and agent infrastructure for on-chain market data.</h1>
+  <p class="lede">A one-person, self-funded software company. It builds tools that read
+  live on-chain and public data and hand it to AI agents and developers &mdash; as MCP
+  servers, as pay-per-call HTTP endpoints, and as hosted data actors.</p>
+</header>
+
+<section>
+  <h2>What it builds</h2>
+
+  <div class="card">
+    <h3>MCP servers for AI agents</h3>
+    <p>Model Context Protocol servers that give an AI assistant live decentralised-exchange
+    market data &mdash; token prices, pool liquidity, reserves, best execution venue and
+    pre-trade slippage &mdash; read directly from on-chain pool state across BNB Chain,
+    Polygon, Arbitrum, Base, Avalanche and Optimism. Published on npm under the MIT licence
+    and listed on the official Model Context Protocol Registry. The free tiers need no API
+    key.</p>
+    <div class="links">
+      <a href="https://www.npmjs.com/package/dex-data-mcp">npm &middot; dex-data-mcp</a>
+      <a href="https://www.npmjs.com/package/arb-dex-mcp">npm &middot; arb-dex-mcp</a>
+      <a href="https://github.com/donnywin85/dex-data-mcp">source &middot; dex-data-mcp</a>
+      <a href="https://github.com/donnywin85/arb-dex-mcp">source &middot; arb-dex-mcp</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>A pay-per-call API gateway<span class="live">live</span></h3>
+    <p>An HTTP-402 gateway on the x402 protocol: a request arrives, the endpoint answers
+    <span style="font-family:var(--mono);font-size:14px">402 Payment Required</span> with the
+    terms, the caller settles USDC on Base, and the response is served. It is built so that an
+    autonomous agent can pay for data without a subscription, an account or a human in the
+    loop. The caller pays from their own wallet; no keys are bundled with any client.</p>
+    <div class="links">
+      <a href="https://x402.donnyautomation.com/health">gateway health</a>
+      <a href="https://x402.donnyautomation.com/stats">gateway stats</a>
+      <a href="https://github.com/donnywin85/agent-utils-mcp">source &middot; agent-utils-mcp</a>
+      <a href="https://github.com/donnywin85/bsc-dex-spread-mcp">source &middot; bsc-dex-spread-mcp</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Public data actors on Apify</h3>
+    <p>Four hosted actors on the Apify Store that turn public sources into clean, structured,
+    schedulable records: DEX token price and liquidity, Apple's podcast directory with
+    new-episode detection, book and ISBN lookup over Open Library and Gutendex, and iOS App
+    Store ratings and price-change monitoring. Each one runs against a keyless upstream, and
+    the source of each is published under the MIT licence.</p>
+    <div class="links">
+      <a href="https://apify.com/praise-most-high/dex-token-price-monitor">DEX price &amp; liquidity</a>
+      <a href="https://apify.com/praise-most-high/podcast-directory-monitor">Podcast directory</a>
+      <a href="https://apify.com/praise-most-high/book-isbn-catalog">Book &amp; ISBN catalog</a>
+      <a href="https://apify.com/praise-most-high/app-store-intelligence">App Store intelligence</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Open source</h3>
+    <p>The libraries, scanners and reference implementations behind the products are public
+    on GitHub &mdash; including a Stripe secret-surface scanner that reports fingerprints and
+    never a value, an approval queue for human-gated AI work, and the MIT sources of every
+    Apify actor above.</p>
+    <div class="links">
+      <a href="https://github.com/donnywin85">github.com/donnywin85</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>The company</h2>
+  <dl>
+    <dt>Legal name</dt><dd>DONNY NGUYEN LLC</dd>
+    <dt>Structure</dt><dd>Single-member limited liability company, State of Texas</dd>
+    <dt>Formed</dt><dd>January 2021</dd>
+    <dt>Headquarters</dt><dd>Plano, Texas, United States</dd>
+    <dt>People</dt><dd>1</dd>
+    <dt>Funding</dt><dd>Bootstrapped and self-funded. No outside investment.</dd>
+  </dl>
+</section>
+
+<section>
+  <h2>Contact</h2>
+  <p class="note">The fastest route is GitHub &mdash; issues on the relevant repository, or
+  the profile at <a href="https://github.com/donnywin85">github.com/donnywin85</a>.</p>
+</section>
+
+<footer>
+  <p>&copy; 2026 Donny Nguyen LLC. Plano, Texas.</p>
+  <p>This page loads no third-party resources, sets no cookies and runs no analytics.</p>
+  <p>Every product named above links to its own public listing or source, so each claim can
+  be checked at the source rather than taken from this page. Figures that change &mdash;
+  download counts, settlement totals &mdash; are deliberately not printed here; the live
+  endpoints and registries above are the record.</p>
+</footer>
+
+</div>
+</body>
+</html>
