@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Barcove: SKU and Barcode Search for Shopify stores</title>
+<meta name="description" content="Barcove adds a storefront search box that finds products by SKU, barcode, or the start of a SKU or word, plus titles, descriptions, tags, vendor and product type. Free, $9/month and $19/month plans.">
+<link rel="canonical" href="https://donnyautomation.com/barcove/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://donnyautomation.com/barcove/">
+<meta property="og:title" content="Barcove: SKU and Barcode Search">
+<meta property="og:description" content="Let shoppers find a product by typing its SKU, its barcode, or the start of either.">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --bg:#ffffff; --panel:#f5f7fb; --line:#e1e5ee;
+    --ink:#141821; --dim:#4a5466; --faint:#6b7488;
+    --accent:#2f55d4; --accent-ink:#ffffff;
+    --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0b0d12; --panel:#12151d; --line:#232836;
+      --ink:#e8ecf4; --dim:#9aa4b8; --faint:#6b7488;
+      --accent:#7c9cff; --accent-ink:#0b0d12;
+    }
+  }
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);
+       font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:760px;margin:0 auto;padding:0 20px}
+  a{color:var(--accent)}
+  header{padding:64px 0 40px;border-bottom:1px solid var(--line)}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;
+           text-transform:uppercase;color:var(--faint)}
+  h1{font-size:clamp(28px,5vw,40px);line-height:1.2;font-weight:600;margin:14px 0 16px;
+     letter-spacing:-.02em}
+  .lede{color:var(--dim);font-size:19px;max-width:62ch}
+  .cta{display:inline-block;margin-top:28px;background:var(--accent);color:var(--accent-ink);
+       font-weight:600;padding:12px 22px;border-radius:8px;text-decoration:none}
+  .cta:hover{opacity:.9}
+  .cta-note{display:block;margin-top:10px;font-size:14px;color:var(--faint)}
+  section{padding:40px 0;border-bottom:1px solid var(--line)}
+  h2{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+     color:var(--faint);font-weight:600;margin-bottom:20px}
+  h3{font-size:18px;font-weight:600;margin-bottom:6px}
+  p + p{margin-top:12px}
+  ul.feat{list-style:none}
+  ul.feat li{padding:10px 0 10px 26px;position:relative;color:var(--dim);
+             border-bottom:1px solid var(--line)}
+  ul.feat li:last-child{border-bottom:0}
+  ul.feat li::before{content:"";position:absolute;left:4px;top:20px;width:8px;height:8px;
+                     border-radius:2px;background:var(--accent)}
+  .example{font-family:var(--mono);font-size:15px;background:var(--panel);
+           border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin-top:16px;
+           overflow-x:auto;white-space:pre;color:var(--dim)}
+  .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+  .plan{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px}
+  .price{font-size:26px;font-weight:600;margin:4px 0 10px}
+  .price small{font-size:15px;font-weight:400;color:var(--faint)}
+  .plan ul{list-style:none;color:var(--dim);font-size:15.5px}
+  .plan li + li{margin-top:4px}
+  .fine{margin-top:16px;font-size:14px;color:var(--faint)}
+  footer{padding:32px 0 56px;font-size:14px;color:var(--faint)}
+  footer p + p{margin-top:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">Barcove &middot; an app for Shopify stores</div>
+  <h1>Let shoppers find a product by its SKU or barcode.</h1>
+  <p class="lede">Shoppers type a SKU, a barcode, or the start of a word in a product name, and the search box finds it. Barcove searches SKUs, barcodes, descriptions, tags, vendor and product type, not just titles.</p>
+  <a class="cta" href="https://apps.shopify.com/barcove-sku-barcode-search">View Barcove on the Shopify App Store</a>
+  <span class="cta-note">Install, plans and billing are handled on the App Store listing.</span>
+</header>
+
+<section>
+  <h2>What it does</h2>
+  <ul class="feat">
+    <li>Match by SKU, barcode, or the start of a word, so a partial SKU still finds the product.</li>
+    <li>Search titles, descriptions, tags, vendor and product type.</li>
+    <li>Synonym groups you control, such as hoodie and sweatshirt, kept until you change them.</li>
+    <li>Build the search index from the app home page with one click. It then updates on its own, up to your plan's product limit.</li>
+    <li>Add the search box to your theme as an app block.</li>
+  </ul>
+  <div class="example">Shopper types:  AB-12      finds the product with SKU AB-1234
+Shopper types:  a barcode  finds the product carrying that barcode
+Shopper types:  sweatshirt finds products tagged hoodie (synonym group)</div>
+</section>
+
+<section>
+  <h2>Who it is for</h2>
+  <p>Stores whose customers already know the code of what they want: parts and spares, supplies, hardware, repeat and trade buyers, or anyone reordering from a packing slip or a label. When a shopper has a SKU or a barcode in hand, the default title search often comes back empty. Barcove makes that code searchable.</p>
+  <p>It also suits stores with many similar products, where the SKU is the quickest way to tell them apart.</p>
+</section>
+
+<section>
+  <h2>Plans</h2>
+  <div class="plans">
+    <div class="plan">
+      <h3>Free</h3>
+      <div class="price">Free</div>
+      <ul><li>Up to 500 products</li><li>2,000 searches per month</li></ul>
+    </div>
+    <div class="plan">
+      <h3>Basic</h3>
+      <div class="price">$9<small>/month</small></div>
+      <ul><li>Up to 2,000 products</li><li>10,000 searches per month</li></ul>
+    </div>
+    <div class="plan">
+      <h3>Plus</h3>
+      <div class="price">$19<small>/month</small></div>
+      <ul><li>Up to 10,000 products</li><li>50,000 searches per month</li></ul>
+    </div>
+  </div>
+  <p class="fine">All charges are in USD and billed every 30 days through Shopify. The App Store listing is the current source for plans and prices.</p>
+</section>
+
+<section>
+  <h2>Get started</h2>
+  <p>Install Barcove from its App Store listing, build the index from the app home page, then add the search box block to your theme.</p>
+  <a class="cta" href="https://apps.shopify.com/barcove-sku-barcode-search">View Barcove on the Shopify App Store</a>
+</section>
+
+<footer>
+  <p>Barcove is built by Donny Automation, an independent developer, and is listed on the Shopify App Store. It is not made or endorsed by Shopify. Shopify is a trademark of Shopify Inc.</p>
+  <p><a href="https://donnyautomation.com/">donnyautomation.com</a> &middot; <a href="https://donnyautomation.com/privacy">Privacy</a> &middot; <a href="https://donnyautomation.com/terms">Terms</a></p>
+</footer>
+
+</div>
+</body>
+</html>
