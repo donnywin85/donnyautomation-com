@@ -3,95 +3,135 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Donny Nguyen LLC — developer and agent infrastructure</title>
-<meta name="description" content="DONNY NGUYEN LLC builds developer and AI-agent infrastructure: MCP servers for on-chain market data, pay-per-call HTTP 402 endpoints settling USDC on Base, and public data actors on Apify.">
+<title>Donny Automation: software and data products</title>
+<meta name="description" content="Donny Automation builds small software and data products: a Shopify search app, a private bank statement converter, a self-publishing calculator, public-record lists, Apify actors and pay-per-call data endpoints.">
 <link rel="canonical" href="https://donnyautomation.com/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://donnyautomation.com/">
-<meta property="og:title" content="Donny Nguyen LLC — developer and agent infrastructure">
-<meta property="og:description" content="MCP servers for on-chain market data, pay-per-call HTTP 402 endpoints settling USDC on Base, and public data actors on Apify.">
+<meta property="og:title" content="Donny Automation: software and data products">
+<meta property="og:description" content="Small software and data products, each with its own page, terms and support.">
 <style>
   *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
   :root{
-    --bg:#0b0d12; --panel:#12151d; --line:#232836;
-    --ink:#e8ecf4; --dim:#9aa4b8; --faint:#6b7488;
-    --accent:#7c9cff; --ok:#4ade80;
+    --bg:#0b0d12; --panel:#12151d; --panel2:#0e1118; --line:#232836;
+    --ink:#e8ecf4; --dim:#a3acbf; --faint:#7a8398;
+    --accent:#7c9cff; --ok:#4ade80; --warn:#fbbf24;
     --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
     --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   }
   html{-webkit-text-size-adjust:100%}
   body{background:var(--bg);color:var(--ink);font-family:var(--sans);
        font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
-  a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent}
-  a:hover{border-bottom-color:var(--accent)}
+  .wrap{max-width:760px;margin:0 auto;padding:0 20px}
+  a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .15s,color .15s}
+  a:hover,a:focus-visible{border-bottom-color:var(--accent)}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
-  header{padding:72px 0 40px;border-bottom:1px solid var(--line)}
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;
+       padding:18px 0;border-bottom:1px solid var(--line)}
+  .brand{font-weight:600;color:var(--ink);letter-spacing:-.01em}
+  .bar nav{display:flex;gap:18px;font-size:15px}
+  .bar nav a{color:var(--dim)}
+  .bar nav a:hover{color:var(--ink)}
+  .bar nav a[aria-current]{color:var(--ink)}
+
+  header.hero{padding:56px 0 36px;border-bottom:1px solid var(--line)}
   .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;
            text-transform:uppercase;color:var(--faint)}
-  h1{font-size:clamp(28px,5vw,40px);line-height:1.2;font-weight:600;margin:14px 0 16px;
+  h1{font-size:clamp(28px,5vw,40px);line-height:1.2;font-weight:600;margin:12px 0 14px;
      letter-spacing:-.02em}
   .lede{color:var(--dim);font-size:19px;max-width:62ch}
 
-  section{padding:44px 0;border-bottom:1px solid var(--line)}
+  section{padding:40px 0;border-bottom:1px solid var(--line)}
   h2{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
-     color:var(--faint);font-weight:600;margin-bottom:24px}
-  h3{font-size:18px;font-weight:600;margin-bottom:6px;letter-spacing:-.01em}
+     color:var(--faint);font-weight:600;margin-bottom:22px}
+  h3{font-size:18px;font-weight:600;letter-spacing:-.01em}
 
   .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;
-        padding:22px 22px 20px;margin-bottom:16px}
+        padding:20px 20px 18px;margin-bottom:14px;transition:border-color .15s}
+  .card:hover{border-color:#34405a}
+  .card .for{font-size:14px;color:var(--faint);margin:2px 0 8px}
   .card p{color:var(--dim);font-size:15.5px}
-  .links{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
+  .tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.06em;
+       text-transform:uppercase;border:1px solid var(--line);border-radius:4px;
+       padding:1px 6px;margin-left:8px;vertical-align:3px;color:var(--faint)}
+  .tag.live{color:var(--ok);border-color:#1f4d33}
+  .tag.soon{color:var(--warn);border-color:#4d3d1a}
+  .links{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
   .links a{font-family:var(--mono);font-size:12.5px;color:var(--dim);
-           border:1px solid var(--line);border-radius:6px;padding:5px 10px;background:#0e1118}
+           border:1px solid var(--line);border-radius:6px;padding:5px 10px;background:var(--panel2)}
   .links a:hover{color:var(--ink);border-color:var(--accent)}
 
-  .live{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);
-        font-size:11.5px;color:var(--ok);margin-left:10px;vertical-align:2px;font-weight:500}
-  .live::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--ok)}
-
-  dl{display:grid;grid-template-columns:180px 1fr;gap:10px 20px;font-size:15.5px}
+  dl{display:grid;grid-template-columns:170px 1fr;gap:10px 20px;font-size:15.5px}
   dt{font-family:var(--mono);font-size:12.5px;color:var(--faint);
      text-transform:uppercase;letter-spacing:.08em;padding-top:4px}
   dd{color:var(--dim)}
+  .note{color:var(--dim);font-size:15.5px;max-width:64ch}
+  .note+.note{margin-top:10px}
 
-  .note{color:var(--faint);font-size:14.5px;max-width:64ch}
-  footer{padding:36px 0 64px;color:var(--faint);font-size:13.5px}
+  footer{padding:32px 0 56px;color:var(--faint);font-size:13.5px}
   footer p+p{margin-top:8px}
+  footer nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:12px;font-size:14px}
 
   @media(max-width:560px){
     body{font-size:16px}
-    header{padding:52px 0 32px}
+    header.hero{padding:40px 0 28px}
+    .bar nav{gap:14px}
     dl{grid-template-columns:1fr;gap:2px 0}
     dt{padding-top:12px}
   }
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
 <body>
 <div class="wrap">
 
-<header>
-  <div class="eyebrow">Donny Nguyen LLC &middot; Plano, Texas</div>
-  <h1>Developer and agent infrastructure for on-chain market data.</h1>
-  <p class="lede">A one-person, self-funded software company. It builds tools that read
-  live on-chain and public data and hand it to AI agents and developers &mdash; as MCP
-  servers, as pay-per-call HTTP endpoints, and as hosted data actors.</p>
+<div class="bar">
+  <a class="brand" href="/">Donny Automation</a>
+  <nav aria-label="Site">
+    <a href="#products">Products</a>
+    <a href="/support">Support</a>
+  </nav>
+</div>
+
+<header class="hero">
+  <div class="eyebrow">Plano, Texas</div>
+  <h1>Small software and data products for businesses.</h1>
+  <p class="lede">Donny Automation is a one-person software company. Each product below does
+  one job, has its own page, its own terms and a real person behind the support address.</p>
 </header>
 
 <section id="products">
   <h2>Products</h2>
 
   <div class="card">
-    <h3>StatementLocal</h3>
-    <p>Convert PDF bank and card statements to CSV or Excel on your own computer. The file is not uploaded to us or to anyone else.</p>
+    <h3>Barcove: SKU &amp; Barcode Search<span class="tag live">live</span></h3>
+    <p class="for">For Shopify stores whose shoppers buy by part number.</p>
+    <p>A storefront search box that searches by SKU, barcode and partial words. The same box
+    also searches titles, descriptions, tags, vendor and product type, with synonym groups you
+    manage.</p>
     <div class="links">
-      <a href="https://statementlocal.vercel.app/">statementlocal.vercel.app</a>
+      <a href="https://apps.shopify.com/barcove-sku-barcode-search">Shopify App Store listing</a>
     </div>
   </div>
 
   <div class="card">
-    <h3>Self-Publishing Calculator</h3>
-    <p>Calculate royalties, prices and sales estimates for self-published books. Self-Publishing Calculator works out what a book earns, before you publish or reprice it. Get the free Chrome extension. Pro adds the price-point finder, price ladder, ads break-even, unlimited saved books and CSV export.</p>
+    <h3>StatementLocal<span class="tag live">live</span></h3>
+    <p class="for">For bookkeepers and anyone who needs bank statements in a spreadsheet.</p>
+    <p>Converts PDF bank and card statements to CSV or Excel inside your browser. The file is
+    not uploaded to us or to anyone else, and each conversion is checked against the balances
+    printed on the statement.</p>
+    <div class="links">
+      <a href="https://statementlocal.vercel.app/">statementlocal.vercel.app</a>
+      <a href="https://statementlocal.vercel.app/faq/">FAQ</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Self-Publishing Calculator<span class="tag live">live</span></h3>
+    <p class="for">For self-published authors pricing a book on KDP.</p>
+    <p>Works out royalties, printing cost and a sales range from a Best Sellers Rank, before you
+    publish or reprice a book. Free calculators on the web and a Chrome extension.</p>
     <div class="links">
       <a href="https://selfpub-calc.vercel.app/">selfpub-calc.vercel.app</a>
       <a href="https://chromewebstore.google.com/detail/pnmfpipmbgfhmmbgajdpnpnlhpgnhmlc">Chrome Web Store</a>
@@ -99,116 +139,71 @@
   </div>
 
   <div class="card">
-    <h3>Barcove</h3>
-    <p>Let shoppers find products by SKU, barcode or partial words.</p>
+    <h3>New Adviser Monitor<span class="tag soon">sales not open</span></h3>
+    <p class="for">For compliance consultants and firms that serve new investment advisers.</p>
+    <p>A monthly list of investment adviser firms that are new to the SEC's public adviser
+    files, by US state. A free sample is on the page. Firm-level fields only.</p>
     <div class="links">
-      <a href="https://apps.shopify.com/barcove-sku-barcode-search">Shopify App Store</a>
+      <a href="https://new-adviser-monitor-production.up.railway.app/">New Adviser Monitor</a>
     </div>
   </div>
 
   <div class="card">
-    <h3>Form D Raise Watch</h3>
-    <p>Daily Form D filings: companies that just raised money, with state, industry, amount raised and related persons as filed. Source: SEC Form D filings.</p>
+    <h3>Audit Prospect List<span class="tag soon">sales not open</span></h3>
+    <p class="for">For CPA firms that audit employee benefit plans.</p>
+    <p>401(k) and other defined-contribution plans that filed the small-plan Form 5500-SF while
+    reporting more than 120 participants with account balances, built from the public Form 5500
+    datasets. A free Texas sample is on the page.</p>
     <div class="links">
-      <a href="https://apify.com/praise-most-high/form-d-raise-watch">Apify Store</a>
+      <a href="https://audit-prospect-list-production.up.railway.app/">Audit Prospect List</a>
     </div>
   </div>
 
   <div class="card">
-    <h3>x402 data routes</h3>
-    <p>SEC, Treasury &amp; Agent Utilities: pay-per-call HTTP endpoints, USDC on base via x402. The gateway publishes its list of routes.</p>
+    <h3>Data actors on Apify<span class="tag live">live</span></h3>
+    <p class="for">For developers and analysts who want public records as clean rows.</p>
+    <p>Hosted actors on the Apify Store, run and billed by Apify. They include UK Public Tenders
+    (notices from the official Find a Tender service) and Form D Raise Watch (companies that
+    just filed a Form D with the SEC, by state and industry).</p>
+    <div class="links">
+      <a href="https://apify.com/praise-most-high/public-tenders">UK Public Tenders</a>
+      <a href="https://apify.com/praise-most-high/form-d-raise-watch">Form D Raise Watch</a>
+      <a href="https://apify.com/praise-most-high">All actors</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Pay-per-call data endpoints<span class="tag live">live</span></h3>
+    <p class="for">For AI agents and developers that pay per request, with no account.</p>
+    <p>HTTP endpoints for SEC filing changes, Treasury rates, LEI lookup, OFAC sanctions name
+    screening and web-page-to-markdown, paid per call over the x402 protocol. The gateway
+    publishes its own list of routes.</p>
     <div class="links">
       <a href="https://x402.donnyautomation.com/.well-known/x402">Route list</a>
+      <a href="https://x402.donnyautomation.com/llms.txt">Catalogue</a>
     </div>
   </div>
 </section>
 
-<section>
-  <h2>What it builds</h2>
-
-  <div class="card">
-    <h3>MCP servers for AI agents</h3>
-    <p>Model Context Protocol servers that give an AI assistant live decentralised-exchange
-    market data &mdash; token prices, pool liquidity, reserves, best execution venue and
-    pre-trade slippage &mdash; read directly from on-chain pool state across BNB Chain,
-    Polygon, Arbitrum, Base, Avalanche and Optimism. Published on npm under the MIT licence
-    and listed on the official Model Context Protocol Registry. The free tiers need no API
-    key.</p>
-    <div class="links">
-      <a href="https://www.npmjs.com/package/dex-data-mcp">npm &middot; dex-data-mcp</a>
-      <a href="https://www.npmjs.com/package/arb-dex-mcp">npm &middot; arb-dex-mcp</a>
-      <a href="https://github.com/donnywin85/dex-data-mcp">source &middot; dex-data-mcp</a>
-      <a href="https://github.com/donnywin85/arb-dex-mcp">source &middot; arb-dex-mcp</a>
-    </div>
-  </div>
-
-  <div class="card">
-    <h3>A pay-per-call API gateway<span class="live">live</span></h3>
-    <p>An HTTP-402 gateway on the x402 protocol: a request arrives, the endpoint answers
-    <span style="font-family:var(--mono);font-size:14px">402 Payment Required</span> with the
-    terms, the caller settles USDC on Base, and the response is served. It is built so that an
-    autonomous agent can pay for data without a subscription, an account or a human in the
-    loop. The caller pays from their own wallet; no keys are bundled with any client.</p>
-    <div class="links">
-      <a href="https://x402.donnyautomation.com/health">gateway health</a>
-      <a href="https://x402.donnyautomation.com/stats">gateway stats</a>
-      <a href="https://github.com/donnywin85/agent-utils-mcp">source &middot; agent-utils-mcp</a>
-      <a href="https://github.com/donnywin85/bsc-dex-spread-mcp">source &middot; bsc-dex-spread-mcp</a>
-    </div>
-  </div>
-
-  <div class="card">
-    <h3>Public data actors on Apify</h3>
-    <p>Four hosted actors on the Apify Store that turn public sources into clean, structured,
-    schedulable records: DEX token price and liquidity, Apple's podcast directory with
-    new-episode detection, book and ISBN lookup over Open Library and Gutendex, and iOS App
-    Store ratings and price-change monitoring. Each one runs against a keyless upstream, and
-    the source of each is published under the MIT licence.</p>
-    <div class="links">
-      <a href="https://apify.com/praise-most-high/dex-token-price-monitor">DEX price &amp; liquidity</a>
-      <a href="https://apify.com/praise-most-high/podcast-directory-monitor">Podcast directory</a>
-      <a href="https://apify.com/praise-most-high/book-isbn-catalog">Book &amp; ISBN catalog</a>
-      <a href="https://apify.com/praise-most-high/app-store-intelligence">App Store intelligence</a>
-    </div>
-  </div>
-
-  <div class="card">
-    <h3>Open source</h3>
-    <p>The libraries, scanners and reference implementations behind the products are public
-    on GitHub &mdash; including a Stripe secret-surface scanner that reports fingerprints and
-    never a value, an approval queue for human-gated AI work, and the MIT sources of every
-    Apify actor above.</p>
-    <div class="links">
-      <a href="https://github.com/donnywin85">github.com/donnywin85</a>
-    </div>
-  </div>
-</section>
-
-<section>
-  <h2>The company</h2>
+<section id="contact">
+  <h2>Contact and support</h2>
   <dl>
-    <dt>Legal name</dt><dd>DONNY NGUYEN LLC</dd>
-    <dt>Structure</dt><dd>Single-member limited liability company, State of Texas</dd>
-    <dt>Formed</dt><dd>January 2021</dd>
-    <dt>Headquarters</dt><dd>Plano, Texas, United States</dd>
-    <dt>People</dt><dd>1</dd>
-    <dt>Funding</dt><dd>Bootstrapped and self-funded. No outside investment.</dd>
+    <dt>Email</dt><dd><a href="mailto:donny.nguyen.business@gmail.com">donny.nguyen.business@gmail.com</a></dd>
+    <dt>Response</dt><dd>Usually within 2 business days</dd>
+    <dt>Help pages</dt><dd><a href="/support">Support</a>: refunds, lost download links and each product's own help</dd>
+    <dt>Based in</dt><dd>Plano, Texas, United States</dd>
   </dl>
 </section>
 
-<section>
-  <h2>Contact</h2>
-  <p class="note">The fastest route is GitHub &mdash; issues on the relevant repository, or
-  the profile at <a href="https://github.com/donnywin85">github.com/donnywin85</a>.</p>
-</section>
-
 <footer>
-  <p>&copy; 2026 Donny Nguyen LLC. Plano, Texas.</p>
+  <nav aria-label="Footer">
+    <a href="/">Home</a>
+    <a href="/support">Support</a>
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+  </nav>
+  <p>&copy; 2026 Donny Automation, a trade name of Donny Nguyen LLC. Plano, Texas.</p>
   <p>This page loads no third-party resources, sets no cookies and runs no analytics.</p>
-  <p>Every product named above links to its own public listing or source, so each claim can
-  be checked at the source rather than taken from this page. Figures that change &mdash;
-  download counts, settlement totals &mdash; are deliberately not printed here; the live
-  endpoints and registries above are the record.</p>
 </footer>
 
 </div>
