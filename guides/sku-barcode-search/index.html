@@ -110,8 +110,11 @@
     properties.</li>
     <li><strong>The dropdown and the results page disagree.</strong> They are separate search types, and
     a theme or app can replace one of them.</li>
-    <li><strong>Several codes per variant.</strong> A variant has one SKU and one barcode field; other
-    codes for the same part (an older number, a supplier number) have no field of their own.</li>
+    <li><strong>Several codes per variant.</strong> A variant has one SKU field and a barcode list that
+    can hold several barcodes. Shopify's
+    <a href="https://changelog.shopify.com/posts/multiple-barcodes-in-variants">changelog</a>
+    says: "Now you can add up to 20 barcodes to a variant". If a shopper searches by an extra barcode
+    and finds nothing, test that case on your own store rather than assuming either way.</li>
   </ol>
 </section>
 
@@ -146,6 +149,7 @@
     theme. What it does today:</p>
     <ul>
       <li>Searches each variant's SKU and barcode.</li>
+      <li>Searches every barcode saved in a variant's barcode list.</li>
       <li>Searches extra barcodes stored in variant metafields that you choose, so one variant can be
       found by several codes.</li>
       <li>Matches a code with or without dashes.</li>
