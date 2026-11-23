@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shopify search not finding SKUs or barcodes: why and how to fix it</title>
+<meta name="description" content="Why a store's search can miss a SKU, barcode or part number, what the Help Center says native search matches, fixes to try for free, and one app option.">
+<link rel="canonical" href="https://donnyautomation.com/guides/sku-barcode-search/">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://donnyautomation.com/guides/sku-barcode-search/">
+<meta property="og:title" content="Store search not finding SKUs, barcodes or part numbers: why, and how to fix it">
+<meta property="og:description" content="What native storefront search matches for SKUs and barcodes, free fixes to try first, and one app option.">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --bg:#0b0d12; --panel:#12151d; --line:#232836;
+    --ink:#e8ecf4; --dim:#a3acbf; --faint:#7a8398; --accent:#7c9cff;
+    --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);
+       font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:760px;margin:0 auto;padding:0 20px}
+  a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent}
+  a:hover,a:focus-visible{border-bottom-color:var(--accent)}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;
+       padding:18px 0;border-bottom:1px solid var(--line)}
+  .brand{font-weight:600;color:var(--ink)}
+  .bar nav{display:flex;gap:18px;font-size:15px}
+  .bar nav a{color:var(--dim)}
+  header.hero{padding:48px 0 28px;border-bottom:1px solid var(--line)}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;
+           text-transform:uppercase;color:var(--faint)}
+  h1{font-size:clamp(26px,4.6vw,36px);line-height:1.2;font-weight:600;margin:12px 0 14px;letter-spacing:-.02em}
+  .lede{color:var(--dim);font-size:18px;max-width:64ch}
+  section{padding:34px 0;border-bottom:1px solid var(--line)}
+  h2{font-size:21px;font-weight:600;margin-bottom:14px;letter-spacing:-.01em}
+  p,li{color:var(--dim)}
+  p+p{margin-top:12px}
+  ul,ol{padding-left:22px;margin-top:10px}
+  li+li{margin-top:8px}
+  strong{color:var(--ink);font-weight:600}
+  code{font-family:var(--mono);font-size:14px;background:var(--panel);border:1px solid var(--line);
+       border-radius:4px;padding:1px 5px;color:var(--ink)}
+  .src{font-size:14px;color:var(--faint);margin-top:14px}
+  .box{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin-top:14px}
+  footer{padding:32px 0 56px;color:var(--faint);font-size:13.5px}
+  footer p+p{margin-top:8px}
+  footer nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:12px;font-size:14px}
+  @media(max-width:560px){body{font-size:16px}header.hero{padding:36px 0 24px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="bar">
+  <a class="brand" href="/">Donny Automation</a>
+  <nav aria-label="Site">
+    <a href="/#products">Products</a>
+    <a href="/support">Support</a>
+  </nav>
+</div>
+
+<header class="hero">
+  <div class="eyebrow">Guide</div>
+  <h1>Shopify store search not finding SKUs, barcodes or part numbers: why, and how to fix it</h1>
+  <p class="lede">A shopper types a part number they know is in your catalog and gets no results, or the
+  wrong ones. This page explains what the built-in storefront search matches for SKUs and barcodes,
+  what to check first, and the fixes you can make without installing anything.</p>
+  <p class="src">Facts about the built-in search come from the Shopify Help Center page
+  <a href="https://help.shopify.com/en/manual/online-store/storefront-search/search-behavior">Search behavior</a>,
+  read on November 22, 2026. Shopify can change that page; check it if something here no longer matches.</p>
+</header>
+
+<section id="what-native-search-matches">
+  <h2>What the built-in search matches</h2>
+  <p>According to the Help Center page (read November 22, 2026):</p>
+  <ul>
+    <li>Products are searched by title, description, product type, tags, variant title, vendor,
+    <strong>variant SKU</strong> and <strong>variant barcode</strong>.</li>
+    <li>A shopper can find a product by typing its <strong>full SKU or barcode</strong>.</li>
+    <li>A partial code matches from the <strong>first character</strong>: the first 3 to 15
+    characters of a SKU, or the first 3 to 10 characters of a barcode, with or without hyphens.
+    Shorter or longer partial codes don't match; for a longer piece, the shopper needs the full code.</li>
+    <li>Characters from the <strong>middle or end</strong> of a code don't match, unless they form a
+    complete segment separated by hyphens, slashes or spaces.</li>
+    <li>A short partial code can also return other products whose codes start with the same characters.</li>
+    <li>Typo tolerance tries to fix words that differ from the search term by one letter. A search limited to one field (see below)
+    looks for an exact match, so a misspelling there won't be corrected.</li>
+    <li>The search results page (after pressing Enter) and predictive search (suggestions while typing)
+    are separate search types.</li>
+  </ul>
+  <p>The Help Center page does not mention metafields, letter case, or spaces typed inside a code.
+  If your part numbers live in a metafield and nowhere else, or shoppers type codes with spaces in different places,
+  test those cases on your own store rather than assuming either way.</p>
+</section>
+
+<section id="why-it-fails">
+  <h2>Common reasons a code search comes back empty</h2>
+  <ol>
+    <li><strong>The shopper typed the middle or end of the code.</strong> For example, the last digits
+    printed on a part, or a barcode without its leading digits.</li>
+    <li><strong>The partial code is too long or too short.</strong> Fewer than 3 characters, more than
+    15 for a SKU, or more than 10 for a barcode, without typing the full code.</li>
+    <li><strong>The code isn't in the SKU or Barcode field.</strong> The partial-code rules above
+    are described for the variant SKU and Barcode fields. A code kept in the description or a tag is
+    searched as part of that text, and metafields are not on the Help Center's list of searchable
+    properties.</li>
+    <li><strong>The dropdown and the results page disagree.</strong> They are separate search types, and
+    a theme or app can replace one of them.</li>
+    <li><strong>Several codes per variant.</strong> A variant has one SKU and one barcode field; other
+    codes for the same part (an older number, a supplier number) have no field of their own.</li>
+  </ol>
+</section>
+
+<section id="free-fixes">
+  <h2>Fixes to try first (no app needed)</h2>
+  <ol>
+    <li><strong>Test the results page directly.</strong> Open <code>/search?q=</code> followed by the first
+    few characters of a real SKU on your store. If this finds the product but the search dropdown
+    doesn't, the problem is in predictive search or the theme, and your theme developer is the right
+    person to ask.</li>
+    <li><strong>Search one field.</strong> The Help Center describes adding a field name and a colon to
+    narrow a search to that field, for example <code>/search?q=variants.sku:ABC-123</code>. Field names are
+    lowercase and the term follows the colon with no space. This separates "the code is missing" from
+    "other products outrank it".</li>
+    <li><strong>Put each code in the variant's SKU or Barcode field.</strong> Those two fields are on the
+    Help Center's list of searchable product properties.</li>
+    <li><strong>Write codes so the part shoppers type comes first, or as its own segment.</strong> Matching
+    starts at the first character, and a middle piece matches when hyphens, slashes or spaces
+    separate it.</li>
+    <li><strong>Tell shoppers how to search.</strong> A short line near the search box, such as "Type
+    the full part number or its first characters", fits how the built-in search works.</li>
+    <li><strong>Test on an unedited copy of your theme.</strong> If search behaves differently there, a
+    theme edit or another app is changing it.</li>
+  </ol>
+</section>
+
+<section id="barcove">
+  <h2>If you want a dedicated code search box: Barcove</h2>
+  <div class="box">
+    <p>Disclosure: Barcove is made by Donny Automation, which publishes this page.</p>
+    <p>Barcove: SKU &amp; Barcode Search is an app for Shopify stores that adds its own search box to your
+    theme. What it does today:</p>
+    <ul>
+      <li>Searches each variant's SKU and barcode.</li>
+      <li>Searches extra barcodes stored in variant metafields that you choose, so one variant can be
+      found by several codes.</li>
+      <li>Matches a code with or without dashes.</li>
+      <li>Opens the product with the matching variant selected, on themes that select the variant from
+      the link.</li>
+    </ul>
+    <p>Plans, pricing and reviews are on its
+    <a href="https://apps.shopify.com/barcove-sku-barcode-search">App Store listing</a>.</p>
+  </div>
+</section>
+
+<footer>
+  <nav aria-label="Footer">
+    <a href="/">Home</a>
+    <a href="/support">Support</a>
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+  </nav>
+  <p>Shopify is a trademark of Shopify Inc. Donny Automation is not affiliated with or endorsed by Shopify.</p>
+  <p>&copy; 2026 Donny Automation, a trade name of Donny Nguyen LLC. Plano, Texas.</p>
+  <p>This page loads no third-party resources, sets no cookies and runs no analytics.</p>
+</footer>
+
+</div>
+</body>
+</html>
