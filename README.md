@@ -1,6 +1,6 @@
 # donnyautomation.com
 
-The public company page for **DONNY NGUYEN LLC**, served by GitHub Pages at the apex of
+The public page for **Donny Automation** (Donny Nguyen, doing business as Donny Automation), served by GitHub Pages at the apex of
 `donnyautomation.com`.
 
 Every claim on this page is checkable from a public source that is linked next to it. There
